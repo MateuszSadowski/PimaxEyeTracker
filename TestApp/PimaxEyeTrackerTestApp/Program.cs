@@ -124,6 +124,8 @@ namespace PimaxEyeTrackerTestApp
 
 	public class EyeTracker
 	{
+		public EyeTracker() { }
+
 		[DllImport("PimaxEyeTracker", EntryPoint = "RegisterCallback")] private static extern void _RegisterCallback(CallbackType type, EyeTrackerEventHandler callback);
 		[DllImport("PimaxEyeTracker", EntryPoint = "Start")] private static extern bool _Start();
 		[DllImport("PimaxEyeTracker", EntryPoint = "Stop")] private static extern void _Stop();
@@ -132,15 +134,6 @@ namespace PimaxEyeTrackerTestApp
 		[DllImport("PimaxEyeTracker", EntryPoint = "GetRecommendedEye")] private static extern Eye _GetRecommendedEye();
 		[DllImport("PimaxEyeTracker", EntryPoint = "GetEyeParameter")] private static extern float _GetEyeParameter(Eye eye, EyeParameter param);
 		[DllImport("PimaxEyeTracker", EntryPoint = "GetEyeExpression")] private static extern float _GetEyeExpression(Eye eye, EyeExpression expression);
-
-		public EyeTrackerEventHandler OnStart { get; set; }
-		private EyeTrackerEventHandler _OnStartHandler = null;
-
-		public EyeTrackerEventHandler OnStop { get; set; }
-		private EyeTrackerEventHandler _OnStopHandler = null;
-
-		public EyeTrackerEventHandler OnUpdate { get; set; }
-		private EyeTrackerEventHandler _OnUpdateHandler = null;
 
 		public EyeState LeftEye { get; private set; }
 		public EyeState RightEye { get; private set; }
@@ -151,60 +144,28 @@ namespace PimaxEyeTrackerTestApp
 
 		public bool Active => _IsActive();
 
-		public bool Start()
-		{
-			_OnStartHandler = _OnStart;
-			_RegisterCallback(CallbackType.Start, _OnStartHandler);
-
-			_OnStopHandler = _OnStop;
-			_RegisterCallback(CallbackType.Stop, _OnStopHandler);
-
-			_OnUpdateHandler = _OnUpdate;
-			_RegisterCallback(CallbackType.Update, _OnUpdateHandler);
-
-			return _Start();
-		}
+		public bool Start() => _Start();
 
 		public void Stop() => _Stop();
 
 		public float GetEyeParameter(Eye eye, EyeParameter param) => _GetEyeParameter(eye, param);
 		public float GetEyeExpression(Eye eye, EyeExpression expression) => _GetEyeExpression(eye, expression);
-
-		private void _OnUpdate()
-		{
-			if (Active)
-			{
-				LeftEye = new EyeState(Eye.Left, this);
-				RightEye = new EyeState(Eye.Right, this);
-				RecommendedEye = new EyeState(_GetRecommendedEye(), this);
-				OnUpdate?.Invoke();
-			}
-		}
-
-		private void _OnStart() => OnStart?.Invoke();
-		private void _OnStop() => OnStop?.Invoke();
-	}
-
-	public class PimaxEyeTracker
-	{
-		public EyeTracker EyeTracker;
-
-		void Awake()
-		{
-			EyeTracker = new EyeTracker();
-		}
-
-		void OnDestroy()
-		{
-			if (EyeTracker.Active) EyeTracker.Stop();
-		}
 	}
 
 	class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+			EyeTracker eyeTracker = new EyeTracker();
+
+			eyeTracker.Start();
+
+			if(eyeTracker.Active)
+            {
+				Console.WriteLine("Eye tracker is active.");
+            }
+
+			eyeTracker.Stop();
         }
     }
 }
