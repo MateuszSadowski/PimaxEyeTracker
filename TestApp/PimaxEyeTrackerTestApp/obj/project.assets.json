@@ -1,11 +1,29 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "PimaxEyeTracker/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/PimaxEyeTracker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PimaxEyeTracker.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PimaxEyeTracker/1.0.0": {
+      "type": "project",
+      "path": "../../PimaxEyeTracker.vcxproj",
+      "msbuildProject": "../../PimaxEyeTracker.vcxproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "PimaxEyeTracker >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\s192771\\.nuget\\packages\\": {},
@@ -38,7 +56,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj": {
+              "projectPath": "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj"
+            }
+          }
         }
       },
       "warningProperties": {

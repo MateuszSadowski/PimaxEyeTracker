@@ -4,6 +4,21 @@
     "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\TestApp\\PimaxEyeTrackerTestApp\\PimaxEyeTrackerTestApp.csproj": {}
   },
   "projects": {
+    "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj",
+        "projectName": "PimaxEyeTracker",
+        "projectPath": "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj",
+        "frameworks": {
+          "native": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "native": {}
+      }
+    },
     "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\TestApp\\PimaxEyeTrackerTestApp\\PimaxEyeTrackerTestApp.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -31,7 +46,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj": {
+                "projectPath": "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\PimaxEyeTracker.vcxproj"
+              }
+            }
           }
         },
         "warningProperties": {
