@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DNyvQswX8dfOGbRA+plx4IwCYg6CM2MRclexjwjmkngQ0ZR1XPQxRldXgYVP3fOwgH2CMm6UGLXq+7qlCmKBTQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\s192771\\Documents\\Repos\\PimaxEyeTracker-sadowskim\\TestApp\\PimaxEyeTrackerTestApp\\PimaxEyeTrackerTestApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s192771\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}
